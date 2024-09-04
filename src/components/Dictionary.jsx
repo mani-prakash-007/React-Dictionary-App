@@ -27,7 +27,6 @@ export const Dictionary = () => {
       setWordData(error.response);
     }
   };
-  console.log(wordData);
 
   return (
     <>
