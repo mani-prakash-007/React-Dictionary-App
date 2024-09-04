@@ -27,6 +27,7 @@ export const Dictionary = () => {
       setWordData(error.response);
     }
   };
+  console.log(wordData);
 
   return (
     <>
@@ -78,14 +79,14 @@ export const Dictionary = () => {
                   <HiSpeakerWave />
                 </button>
                 <p className="tracking-widest">{`${wordData.data[0].word} [ ${
-                  wordData.data[0].phonetics == undefined
-                    ? wordData.data[0].phonetics[0].text
+                  wordData.data[0].phonetic == undefined
+                    ? wordData.data[0].phonetics[1].text
                     : wordData.data[0].phonetic
                 } ]`}</p>
               </div>
-              {wordData.data[0].meanings.map((data) => {
+              {wordData.data[0].meanings.map((data, index) => {
                 return (
-                  <div className="text-wrap py-2 ">
+                  <div className="text-wrap py-2 " key={index}>
                     <h1 className="font-bold text-2xl">
                       {data.partOfSpeech.toUpperCase()}
                     </h1>
